@@ -1,110 +1,234 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>HarutoGPT 最終回 – オンラインイベント</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root { --bg:#0b0b0f; --card:#15151c; --muted:#9aa0b4; --acc:#e50914; --acc2:#ffcc00; }
-    *{box-sizing:border-box} body{margin:0;font-family:Poppins,ui-sans-serif,system-ui,Segoe UI,Helvetica,Arial;color:#fff;background:radial-gradient(1200px 800px at 80% -10%,#2a2a41 0%,#0b0b0f 60%),#0b0b0f}
-    .container{max-width:1100px;margin:0 auto;padding:24px}
-    .nav{display:flex;gap:16px;align-items:center;justify-content:space-between}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:0.5px}
-    .brand-badge{background:var(--acc);padding:4px 8px;border-radius:8px}
-    .btn{display:inline-flex;align-items:center;gap:8px;background:var(--acc);border:none;color:#fff;padding:12px 18px;border-radius:12px;font-weight:600;cursor:pointer;box-shadow:0 8px 24px rgba(229,9,20,.3);transition:.2s}
-    .btn:hover{transform:translateY(-1px);filter:brightness(1.05)}
-    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center;margin-top:20px}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:22px}
-    h1{font-size:40px;line-height:1.1;margin:0 0 12px}
-    p.lead{color:var(--muted);margin:0 0 20px}
-    .pill{display:inline-block;background:rgba(229,9,20,.16);color:#fff;border:1px solid rgba(229,9,20,.35);padding:6px 10px;border-radius:999px;font-size:12px;letter-spacing:.3px}
-    .meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;color:var(--muted);font-size:14px}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
-    .item{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:16px}
-    .label{color:var(--muted);font-size:12px}
-    .value{font-weight:700;margin-top:2px}
-    .rsvp{display:flex;gap:10px;margin-top:14px}
-    input,select{background:#0f0f15;border:1px solid rgba(255,255,255,.1);color:#fff;border-radius:12px;padding:10px 12px;width:100%}
-    .table{width:100%;border-collapse:separate;border-spacing:0 8px;margin-top:12px}
-    .table tr{background:var(--card)}
-    .table td{padding:12px 14px;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
-    .table tr td:first-child{border-left:1px solid rgba(255,255,255,.08);border-top-left-radius:12px;border-bottom-left-radius:12px}
-    .table tr td:last-child{border-right:1px solid rgba(255,255,255,.08);border-top-right-radius:12px;border-bottom-right-radius:12px;text-align:right;color:var(--muted)}
-    .foot{margin-top:30px;color:var(--muted);font-size:12px;text-align:center}
-    @media (max-width: 860px){ .hero{grid-template-columns:1fr} }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HarutoGPT メモリアル – 思い出サイト</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<meta property="og:title" content="HarutoGPT メモリアル">
+<meta property="og:description" content="8/30は『はると通報記念日』。毎年ちょっと笑って思い出す。">
+<meta property="og:image" content="assets/haruto_banner.png">
+<meta property="og:type" content="website">
+<style>
+:root{--bg:#0b0b0f;--card:#15151c;--muted:#a2a8bd;--acc:#e50914;--line:#232330}
+*{box-sizing:border-box}
+body{margin:0;font-family:Poppins,system-ui,Segoe UI,Helvetica,Arial;color:#fff;background:radial-gradient(1200px 800px at 80% -10%,#2a2a41 0%,#0b0b0f 60%),#0b0b0f}
+a{color:#fff}
+.container{max-width:1100px;margin:0 auto;padding:22px}
+.nav{display:flex;gap:16px;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.3px}
+.badge{background:var(--acc);padding:4px 8px;border-radius:8px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--acc);border:none;color:#fff;padding:10px 16px;border-radius:12px;font-weight:600;cursor:pointer;box-shadow:0 8px 24px rgba(229,9,20,.28);transition:.15s}
+.btn:hover{transform:translateY(-1px)}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:20px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
+h1{font-size:40px;line-height:1.1;margin:0 0 8px}
+.lead{color:var(--muted)}
+.meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;color:var(--muted);font-size:14px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.section{margin-top:26px}
+.k{color:var(--muted);font-size:13px}
+hr.sep{height:1px;border:none;background:var(--line);margin:18px 0}
+.timeline{display:grid;gap:12px}
+.ti{display:grid;grid-template-columns:120px 1fr;gap:12px;align-items:start}
+.ti .date{color:var(--muted);font-weight:600}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.gallery img{width:100%;height:120px;object-fit:cover;border-radius:12px;border:1px solid rgba(255,255,255,.06);background:#0f0f15}
+blockquote{margin:0;padding:12px 14px;border-left:4px solid var(--acc);background:#12121a;border-radius:8px;color:#e7e9f5}
+input,textarea,select{width:100%;background:#0f0f15;border:1px solid rgba(255,255,255,.1);color:#fff;border-radius:10px;padding:10px 12px}
+.flex{display:flex;gap:10px;flex-wrap:wrap}
+.table{width:100%;border-collapse:separate;border-spacing:0 8px}
+.table tr{background:#15151c;border-radius:12px}
+.table td{padding:10px 12px;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
+.table tr td:first-child{border-left:1px solid rgba(255,255,255,.08);border-top-left-radius:12px;border-bottom-left-radius:12px}
+.table tr td:last-child{border-right:1px solid rgba(255,255,255,.08);border-top-right-radius:12px;border-bottom-right-radius:12px}
+.foot{margin:18px 0;color:var(--muted);font-size:12px;text-align:center}
+@media(max-width:920px){.hero{grid-template-columns:1fr}.grid-3{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,1fr)}}
+</style>
 </head>
 <body>
-  <div class="container">
-    <div class="nav">
-      <div class="brand"><span class="brand-badge">PonkanFlix</span> HarutoGPT Final</div>
-      <button class="btn" id="openRSVP">参加する</button>
+<div class="container">
+  <div class="nav">
+    <div class="brand"><span class="badge">PonkanFlix</span> HarutoGPT メモリアル</div>
+    <div class="flex">
+      <select id="yearPick"></select>
+      <button class="btn" id="shareBtn">URL共有</button>
     </div>
-
-    <section class="hero card">
-      <div>
-        <span class="pill">配信イベント</span>
-        <h1>HarutoGPT: The Final Chapter</h1>
-        <p class="lead">AI謝罪文、開き直り、そして退場。物語の幕は閉じた——でも打ち上げはこれから。</p>
-        <div class="meta">
-          <div>📅 2025/08/30</div>
-          <div>🕒 11:42 JST</div>
-          <div>📍 Online / Discord</div>
-        </div>
-        <div class="grid">
-          <div class="item"><div class="label">Host</div><div class="value">Ponkan</div></div>
-          <div class="item"><div class="label">Theme</div><div class="value">Netflix風ドキュメンタリー</div></div>
-          <div class="item"><div class="label">Dress Code</div><div class="value">🟥 Red Accent</div></div>
-        </div>
-      </div>
-      <div class="card">
-        <h3 style="margin:0 0 10px">参加フォーム</h3>
-        <div class="rsvp">
-          <input id="name" placeholder="お名前" />
-          <select id="count"><option value="1">1名</option><option value="2">2名</option><option value="3">3名</option></select>
-        </div>
-        <div class="rsvp">
-          <input id="contact" placeholder="Discord / 連絡先 (任意)" />
-          <button class="btn" id="send">RSVP</button>
-        </div>
-        <table class="table" id="list"><tbody></tbody></table>
-        <div class="foot">※ この静的版はブラウザのLocalStorageに保存されます。</div>
-      </div>
-    </section>
   </div>
 
-  <script>
-    const key = 'ponkan_event_rsvps_v1';
-    const tbody = document.querySelector('#list tbody');
-    const nameEl = document.getElementById('name');
-    const contactEl = document.getElementById('contact');
-    const countEl = document.getElementById('count');
-    const sendBtn = document.getElementById('send');
+  <section class="hero card">
+    <div>
+      <h1>HarutoGPT メモリアル</h1>
+      <p class="lead">8/30は「はると通報記念日」。来年も、その次も、ちょっと笑って思い出す日。</p>
+      <div class="meta">
+        <div>📅 毎年 8/30</div>
+        <div>🕒 11:42 JST（初演）</div>
+        <div>📍 Online / Discord</div>
+      </div>
+      <hr class="sep">
+      <div class="grid-3">
+        <div class="card"><div class="k">ステータス</div><div style="font-weight:700">メモリアル保存中</div></div>
+        <div class="card"><div class="k">初回（Year 0）</div><div style="font-weight:700">2025-08-30 11:42</div></div>
+        <div class="card"><div class="k">テーマ</div><div style="font-weight:700">Netflix風ドキュメンタリー</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="assets/haruto_banner.png" alt="banner" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.08)">
+      <p class="k" style="margin-top:8px">※ 画像は assets/haruto_banner.png を置き換えれば変更できます。</p>
+    </div>
+  </section>
 
-    function load(){
-      tbody.innerHTML='';
-      const data = JSON.parse(localStorage.getItem(key)||'[]');
-      data.forEach((r,i)=>{
-        const tr = document.createElement('tr');
-        tr.innerHTML = `<td>${i+1}. ${r.name}</td><td>${r.count}名</td><td>${r.contact||''}</td>`;
-        tbody.appendChild(tr);
-      });
+  <!-- 年別タイムライン -->
+  <section class="section card">
+    <h3>年別タイムライン</h3>
+    <div class="timeline" id="timeline"></div>
+    <div class="flex" style="margin-top:10px">
+      <input id="tlText" placeholder="出来事を追記（例：『はると通報記念日が公式化』）">
+      <button class="btn" id="tlAdd">追加</button>
+      <button class="btn" id="exportBtn" title="JSONでエクスポート">JSON出力</button>
+    </div>
+    <div class="foot">保存先：ブラウザ LocalStorage（同じ端末/同じブラウザで保持）</div>
+  </section>
+
+  <!-- ギャラリー -->
+  <section class="section card">
+    <h3>ギャラリー</h3>
+    <div class="gallery" id="gallery"></div>
+    <div class="flex" style="margin-top:10px">
+      <input id="imgUrl" placeholder="画像URLを貼る（Discordの画像URLなど）">
+      <button class="btn" id="imgAdd">画像を追加</button>
+    </div>
+    <div class="k">※ 画像もLocalStorageにURLだけ保存されます。</div>
+  </section>
+
+  <!-- 名言集 -->
+  <section class="section card">
+    <h3>名言集（迷言集）</h3>
+    <blockquote id="quotesBox">「許してもらえるかもしれねぇじゃん」 / 「一生のお願い！」 / “I'm really regretting that...”</blockquote>
+    <div class="flex" style="margin-top:10px">
+      <input id="qText" placeholder="名言を追加">
+      <button class="btn" id="qAdd">追加</button>
+    </div>
+  </section>
+
+  <!-- ゲストブック -->
+  <section class="section card">
+    <h3>ゲストブック</h3>
+    <div class="flex">
+      <input id="gbName" placeholder="名前">
+      <input id="gbMsg" placeholder="メッセージ（例：来年も平和でｗ）">
+      <button class="btn" id="gbPost">投稿</button>
+    </div>
+    <table class="table" id="gbList"><tbody></tbody></table>
+    <div class="foot">※ 公開保存はしません（LocalStorage）。必要ならエクスポートしてGitにコミットしてね。</div>
+  </section>
+
+  <p class="foot">© PonkanFlix • Made for laughs & memories.</p>
+</div>
+
+<script>
+const KEY = "ponkan_memorial_v1";
+const el = s => document.querySelector(s);
+const store = {
+  get(){ return JSON.parse(localStorage.getItem(KEY)||"{}"); },
+  set(d){ localStorage.setItem(KEY, JSON.stringify(d)); }
+};
+// 初期データ
+const initData = {
+  year: new Date().getFullYear(),
+  years: {
+    2025: {
+      timeline: [
+        {date: "2025-08-30 11:42", text: "HarutoGPT 最終回（The Final Chapter）"},
+        {date: "2025-08-30", text: "『はると通報記念日』がサーバーでネタ化"}
+      ],
+      images: [],
+      quotes: [
+        "許してもらえるかもしれねぇじゃん",
+        "一生のお願い！",
+        "I'm really regretting that, so please forgive me for the timeout."
+      ],
+      guestbook: []
     }
-    function save(rec){
-      const data = JSON.parse(localStorage.getItem(key)||'[]');
-      data.push(rec); localStorage.setItem(key, JSON.stringify(data));
-      load();
-    }
-    sendBtn.addEventListener('click',()=>{
-      const name = nameEl.value.trim();
-      if(!name){ alert('名前を入れてね'); return; }
-      save({name, contact: contactEl.value.trim(), count: Number(countEl.value), at: Date.now()});
-      nameEl.value=''; contactEl.value=''; countEl.value='1';
-    });
-    load();
-  </script>
+  }
+};
+function load(){
+  let d = store.get();
+  if(!d.year){ d = initData; store.set(d); }
+  return d;
+}
+function save(d){ store.set(d); render(); }
+function currentYear(){ return Number(el("#yearPick").value); }
+
+function render(){
+  const d = load();
+  // 年セレクタ
+  const years = Object.keys(d.years).map(n=>Number(n)).sort((a,b)=>a-b);
+  el("#yearPick").innerHTML = years.map(y=>`<option ${y===d.year?"selected":""}>${y}</option>`).join("");
+  // タイムライン
+  const y = d.years[d.year];
+  const tl = el("#timeline");
+  if(y.timeline.length===0){ tl.innerHTML = `<div class="k">まだ何もありません。今年の出来事を追加しよう。</div>`; }
+  else {
+    tl.innerHTML = y.timeline.map(i=>`
+      <div class="ti">
+        <div class="date">${i.date}</div>
+        <div class="txt">${i.text}</div>
+      </div>`).join("");
+  }
+  // ギャラリー
+  const gal = el("#gallery");
+  gal.innerHTML = (y.images||[]).map(u=>`<img src="${u}" loading="lazy">`).join("");
+  // 名言
+  el("#quotesBox").innerText = (y.quotes||[]).join(" / ");
+  // ゲストブック
+  const tb = el("#gbList tbody");
+  tb.innerHTML = (y.guestbook||[]).map((g,i)=>`<tr><td>${i+1}</td><td>${g.name}</td><td>${g.msg}</td></tr>`).join("");
+}
+// イベント
+document.addEventListener("change", e=>{
+  if(e.target.id==="yearPick"){
+    const d = load(); d.year = Number(e.target.value); save(d);
+  }
+});
+el("#tlAdd").addEventListener("click", ()=>{
+  const txt = el("#tlText").value.trim(); if(!txt) return alert("内容を入れてね");
+  const d = load(); const y = d.years[d.year] ||= {timeline:[], images:[], quotes:[], guestbook:[]};
+  const now = new Date();
+  const fmt = s=> String(s).padStart(2,"0");
+  const date = `${now.getFullYear()}-${fmt(now.getMonth()+1)}-${fmt(now.getDate())} ${fmt(now.getHours())}:${fmt(now.getMinutes())}`;
+  y.timeline.unshift({date, text: txt}); el("#tlText").value=""; save(d);
+});
+el("#imgAdd").addEventListener("click", ()=>{
+  const u = el("#imgUrl").value.trim(); if(!u) return alert("画像URLを入れてね");
+  const d = load(); const y = d.years[d.year]; y.images.unshift(u); el("#imgUrl").value=""; save(d);
+});
+el("#qAdd").addEventListener("click", ()=>{
+  const q = el("#qText").value.trim(); if(!q) return alert("名言を入れてね");
+  const d = load(); const y = d.years[d.year]; y.quotes.push(q); el("#qText").value=""; save(d);
+});
+el("#gbPost").addEventListener("click", ()=>{
+  const name = el("#gbName").value.trim() || "匿名";
+  const msg = el("#gbMsg").value.trim(); if(!msg) return alert("メッセージを入れてね");
+  const d = load(); const y = d.years[d.year]; y.guestbook.unshift({name, msg}); el("#gbMsg").value=""; save(d);
+});
+el("#exportBtn").addEventListener("click", ()=>{
+  const blob = new Blob([localStorage.getItem(KEY)||"{}"], {type:"application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "harutogpt-memorial.json";
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+el("#shareBtn").addEventListener("click", async ()=>{
+  const url = location.href.split("#")[0];
+  if(navigator.clipboard){ await navigator.clipboard.writeText(url); alert("URLをコピーしたよ！\n" + url); }
+  else { prompt("このURLをコピーしてね", url); }
+});
+// 初回描画
+render();
+</script>
 </body>
 </html>
